@@ -1,0 +1,37 @@
+<ul *ngFor="let el of product;let inx=index">
+  <li>{{el.title}}</li>
+  <li>{{el.descrption}}</li>
+  <li>{{el.Brand}}</li>
+  <li>{{el.price}}</li>
+  <li>{{el.quantity}}</li>
+  <li>{{el.category}}</li>
+  <li>{{el.color}}</li>
+  <li>{{el.totalRatings}}</li>
+  <li>{{el.views}}</li>
+  <li><img *ngFor="let img of el.images" src="data:image/png;base64,{{img}}" width="200px"></li>
+  <div class="rating">
+    <input id="star5" name="star" type="radio" (click)="rate($event,el._id)" value="5" class="radio-btn hide" />
+    <label for="star5">☆</label>
+    <input id="star4" name="star" type="radio" (click)="rate($event,el._id)" value="4" class="radio-btn hide" />
+    <label for="star4">☆</label>
+    <input id="star3" name="star" type="radio" (click)="rate($event,el._id)" value="3" class="radio-btn hide" />
+    <label for="star3">☆</label>
+    <input id="star2" name="star" type="radio" (click)="rate($event,el._id)" value="2" class="radio-btn hide" />
+    <label for="star2">☆</label>
+    <input id="star1" name="star" type="radio" (click)="rate($event,el._id)" value="1" class="radio-btn hide" />
+    <label for="star1">☆</label>
+  </div>
+  <button type="button" (click)="views(el._id)">View</button>
+  <button type="button" (click)="toWishList(el._id)" *ngIf="!add1(el._id)">add to wishList</button>
+  <button type="button" (click)="toWishList(el._id)" *ngIf="add1(el._id)">remove</button>
+  <form #addToCart="ngForm" (ngSubmit)="submit(addToCart.value)">
+    <label for="count">Count</label>
+    <input type="number" id="count" ngModel required name="count" #count="ngModel">
+    <label for="color">Color</label>
+    <input type="text" id="color" ngModel required name="color" #color="ngModel">
+    <input type="text" id="product" hidden ngModel name="product" [(ngModel)]="el._id" #product="ngModel">
+    <button type="submit" class="btn btn-primary" [disabled]="addToCart.invalid">add to
+      cart</button>
+    <!-- <button type="button" *ngIf="clicked(el._id)" disabled>done</button> -->
+  </form>
+</ul>

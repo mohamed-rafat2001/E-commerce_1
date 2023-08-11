@@ -1,0 +1,4 @@
+<ul *ngFor="let el of category;let inx=index">
+  <li>title >>> {{el.title}}</li>
+  <button type="button" routerLink="/singleProductCat/{{el.title}}">view</button>
+</ul>

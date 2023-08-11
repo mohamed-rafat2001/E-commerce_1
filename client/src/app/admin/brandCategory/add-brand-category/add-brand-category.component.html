@@ -1,0 +1,16 @@
+<form #addBrandCat="ngForm" (ngSubmit)="onSubmit(addBrandCat.value)">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" ngModel #title="ngModel" required minlength="3">
+      <div *ngIf="title.invalid && title.touched">
+        <div *ngIf="title.errors?.['required']">title is required</div>
+        <div *ngIf="title.errors?.['minlength']">
+          the actualLength is {{title.errors?.['minlength'].actualLength}}
+          but required length {{title.errors?.['minlength'].requiredLength}}
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="addBrandCat.invalid">Add</button>
+  </div>
+</form>

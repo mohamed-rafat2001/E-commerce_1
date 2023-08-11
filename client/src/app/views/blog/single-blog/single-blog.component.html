@@ -1,0 +1,10 @@
+<ul>
+  <li>title >>{{blog.title}}</li>
+  <li>descrption >>{{blog.descrption}}</li>
+  <li>category >>>>{{blog.category}}</li>
+  <li>likes >> {{blog.likesNumber}}</li>
+  <li>disLikes >> {{blog.unLikesNumber}}</li>
+  <li>views >> {{blog.numViews}}</li>
+  <button type="button" (click)="like(blog._id)">like</button>
+  <button type="button" (click)="disLike(blog._id)">disLike</button>
+</ul>

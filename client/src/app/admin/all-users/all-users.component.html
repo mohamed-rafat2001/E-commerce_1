@@ -1,0 +1,25 @@
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">index</th>
+      <th *ngFor="let el of userInfo" scope="col">{{el}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ele of users,let inx=index">
+      <th scope="row">{{inx+1}}</th>
+      <th scope="col">{{ele._id}}</th>
+      <th scope="col">{{ele.firstName}}</th>
+      <th scope="col">{{ele.lastName}}</th>
+      <th scope="col">{{ele.email}}</th>
+      <th scope="col">{{ele.address}}</th>
+      <th scope="col">{{ele.role}}</th>
+      <th scope="col"><button type="button" (click)="Block(inx,ele._id)">{{ele.Block}}</button></th>
+      <th scope="col"><button type="button" (click)="deleteUser(inx,ele._id)">delete</button></th>
+    </tr>
+  </tbody>
+</table>

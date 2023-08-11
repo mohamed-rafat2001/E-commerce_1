@@ -1,0 +1,14 @@
+<div *ngIf="!noBlogs()">
+  <button type="button" (click)="deleteAllBlogs()">delete all</button>
+  <ul *ngFor="let el of blogs ;let inx=index ">
+    <li>title >>{{el.title}}</li>
+    <li>descrption >>{{el.descrption}}</li>
+    <li>category >>>>{{el.category}}</li>
+    <li>likes >> {{el.likesNumber}}</li>
+    <li>disLikes >> {{el.unLikesNumber}}</li>
+    <li>views >> {{el.numViews}}</li>
+    <button type="button" (click)="deleteBlog(el._id,inx)">delete blog</button>
+    <button type="button" routerLink="/admin/updateBlog/{{el._id}}">update</button>
+  </ul>
+</div>
+<h1 *ngIf="noBlogs()">no blogs</h1>

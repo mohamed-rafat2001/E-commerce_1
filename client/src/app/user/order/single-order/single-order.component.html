@@ -1,0 +1,21 @@
+<div *ngIf="existOrder()">
+  <button type="button" (click)="deleteAll()">delete all orders</button>
+  <ul *ngFor="let el of orders ; let inx=index">
+    <li>Price >>> {{el.PaymentIntent.totalPrice}}</li>
+    <ul *ngFor="let pro of el.products">
+      <li>{{pro.product.title}}</li>
+      <li>{{pro.product.descrption}}</li>
+      <li>{{pro.product.Brand}}</li>
+      <li>{{pro.product.price}}</li>
+      <li>{{pro.count}}</li>
+      <li>{{pro.product.category}}</li>
+      <li>{{pro.color}}</li>
+      <li>{{pro.product.totalRatings}}</li>
+      <li>{{pro.product.views}}</li>
+      <li><img *ngFor="let img of pro.product.images" src="data:image/png;base64,{{img}}" width="200px"></li>
+      <li>*************</li>
+    </ul>
+    <button type="button" (click)="delete(el._id,inx)">delete order</button>
+  </ul>
+</div>
+<h1 *ngIf="!existOrder()">no orders</h1>

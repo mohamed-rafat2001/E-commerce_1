@@ -1,0 +1,40 @@
+<form #addBlog="ngForm" (ngSubmit)="onSubmit(addBlog.value)">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" ngModel #title="ngModel" required minlength="5">
+      <div *ngIf="title.invalid && title.touched">
+        <div *ngIf="title.errors?.['required']">title is required</div>
+        <div *ngIf="title.errors?.['minlength']">
+          the actualLength is {{title.errors?.['minlength'].actualLength}}
+          but required length {{title.errors?.['minlength'].requiredLength}}
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Descrption</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descrption" ngModel
+        #descrption="ngModel" required minlength="20"></textarea>
+      <div *ngIf="descrption.invalid && descrption.touched">
+        <div *ngIf="descrption.errors?.['required']">descrption is required</div>
+        <div *ngIf="descrption.errors?.['minlength']">
+          the actualLength is {{descrption.errors?.['minlength'].actualLength}}
+          but required length {{descrption.errors?.['minlength'].requiredLength}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input type="text" class="form-control" id="category" name="category" ngModel #category="ngModel" required>
+    <div *ngIf="category.invalid && category.touched">
+      <div *ngIf="category.errors?.['required']">category is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="image">images</label>
+    <input type="file" multiple="multiple" class="form-control-file" id="image" name="image" ngModel #image="ngModel"
+      required accept="image/*" (change)="uploadImg($event)">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="addBlog.invalid">Add</button>
+</form>

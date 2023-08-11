@@ -1,0 +1,11 @@
+<ul *ngFor="let el of blog ;let inx=index ">
+  <li>title >>{{el.title}}</li>
+  <li>descrption >>{{el.descrption}}</li>
+  <li>category >>>>{{el.category}}</li>
+  <li>likes >> {{el.likesNumber}}</li>
+  <li>disLikes >> {{el.unLikesNumber}}</li>
+  <li>views >> {{el.numViews}}</li>
+  <button type="button" (click)="like(el._id,inx)">like</button>
+  <button type="button" (click)="disLike(el._id,inx)">disLike</button>
+  <button type="button" routerLink="/singleBlog/{{el._id}}">view</button>
+</ul>

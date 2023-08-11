@@ -1,0 +1,5 @@
+<form #order="ngForm" (ngSubmit)="addOrder(order.value)">
+  <label>enter "Cash On Delivery"</label>
+  <input type="text" name="COD" ngModel #COD="ngModel" id="cod">
+  <button type="submit" [disabled]="order.invalid">submit</button>
+</form>

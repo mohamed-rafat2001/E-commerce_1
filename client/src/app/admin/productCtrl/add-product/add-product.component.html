@@ -1,0 +1,68 @@
+<form #addProduct="ngForm" (ngSubmit)="onSubmit(addProduct.value)">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" ngModel #title="ngModel" required minlength="5">
+      <div *ngIf="title.invalid && title.touched">
+        <div *ngIf="title.errors?.['required']">title is required</div>
+        <div *ngIf="title.errors?.['minlength']">
+          the actualLength is {{title.errors?.['minlength'].actualLength}}
+          but required length {{title.errors?.['minlength'].requiredLength}}
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Descrption</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descrption" ngModel
+        #descrption="ngModel" required minlength="20"></textarea>
+      <div *ngIf="descrption.invalid && descrption.touched">
+        <div *ngIf="descrption.errors?.['required']">descrption is required</div>
+        <div *ngIf="descrption.errors?.['minlength']">
+          the actualLength is {{descrption.errors?.['minlength'].actualLength}}
+          but required length {{descrption.errors?.['minlength'].requiredLength}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="brand">Brand</label>
+    <input type="text" class="form-control" id="brand" name="Brand" ngModel #Brand="ngModel" required>
+    <div *ngIf="Brand.invalid && Brand.touched">
+      <div *ngIf="Brand.errors?.['required']">Brand is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Price">Price</label>
+    <input type="number" class="form-control" id="Price" name="price" ngModel #price="ngModel" required>
+    <div *ngIf="price.invalid && price.touched">
+      <div *ngIf="price.errors?.['required']">Price is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="quantity">quantity</label>
+    <input type="number" class="form-control" id="quantity" name="quantity" ngModel #quantity="ngModel" required>
+    <div *ngIf="quantity.invalid && quantity.touched">
+      <div *ngIf="quantity.errors?.['required']">quantity is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="color">Color</label>
+    <input type="text" class="form-control" id="color" name="color" ngModel #color="ngModel" required>
+    <div *ngIf="color.invalid && color.touched">
+      <div *ngIf="color.errors?.['required']">color is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input type="text" class="form-control" id="category" name="category" ngModel #category="ngModel" required>
+    <div *ngIf="category.invalid && category.touched">
+      <div *ngIf="category.errors?.['required']">category is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="image">images</label>
+    <input type="file" multiple="multiple" class="form-control-file" id="image" name="images" ngModel #images="ngModel"
+      required accept="images/*" (change)="uploadImg($event)">
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="addProduct.invalid">Add</button>
+</form>

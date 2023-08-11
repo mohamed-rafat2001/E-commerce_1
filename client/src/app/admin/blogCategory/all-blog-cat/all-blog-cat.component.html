@@ -1,0 +1,5 @@
+<ul *ngFor="let el of category;let inx=index">
+  <li>title >>> {{el.title}}</li>
+  <button type="button" routerLink="/singleBlogCat/{{el.title}}">view</button>
+  <button type="button" (click)="delete(el._id,inx)">delete cat</button>
+</ul>

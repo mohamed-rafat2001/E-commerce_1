@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">index</th>
+      <th *ngFor="let el of userInfo" scope="col">{{el}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ele of admins,let inx=index">
+      <th scope="row">{{inx+1}}</th>
+      <th scope="col">{{ele._id}}</th>
+      <th scope="col">{{ele.firstName}}</th>
+      <th scope="col">{{ele.lastName}}</th>
+      <th scope="col">{{ele.email}}</th>
+      <th scope="col">{{ele.address}}</th>
+      <th scope="col">{{ele.role}}</th>
+      <th scope="col"><button type="button">{{ele.Block}}</button></th>
+    </tr>
+  </tbody>
+</table>

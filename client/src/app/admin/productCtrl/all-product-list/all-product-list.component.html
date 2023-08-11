@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">index</th>
+      <th *ngFor="let el of productInfo" scope="col">{{el}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ele of product,let inx=index">
+      <th scope="row">{{inx+1}}</th>
+      <th scope="col">{{ele._id}}</th>
+      <th scope="col">{{ele.title}}</th>
+      <th scope="col">{{ele.descrption}}</th>
+      <th scope="col">{{ele.quantity}}</th>
+      <th scope="col">{{ele.color}}</th>
+      <th scope="col">{{ele.price}}</th>
+      <th scope="col">{{ele.Brand}}</th>
+      <th scope="col">{{ele.category}}</th>
+
+
+      <th scope="col"><button type="button" routerLink="/admin/updateProduct/{{ele._id}}">update </button></th>
+      <th scope="col"><button (click)="deleteProduct(inx,ele._id)">delete</button></th>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,22 @@
+<ul>
+  <li>{{productt.title}}</li>
+  <li>{{productt.descrption}}</li>
+  <li>{{productt.Brand}}</li>
+  <li>{{productt.price}}</li>
+  <li>{{productt.quantity}}</li>
+  <li>{{productt.category}}</li>
+  <li>{{productt.color}}</li>
+  <li>{{productt.totalRatings}}</li>
+  <li>{{productt.views}}</li>
+  <li><img *ngFor="let img of productt.images" src="data:image/png;base64,{{img}}" width="200px"></li>
+  <button type="button" (click)="toWishList()" *ngIf="!add1()">add</button>
+  <button type="button" (click)="toWishList()" *ngIf="add1()">remove</button>
+  <form #addToCart="ngForm" (ngSubmit)="submit(addToCart.value)">
+    <label for="count">Count</label>
+    <input type="number" id="count" ngModel required name="count" #count="ngModel">
+    <label for="color">Color</label>
+    <input type="text" id="color" ngModel required name="color" #color="ngModel">
+    <input type="text" id="product" hidden ngModel name="product" [(ngModel)]="productt._id" #product="ngModel">
+    <button type="submit" class="btn btn-primary" [disabled]="addToCart.invalid">add to cart</button>
+  </form>
+</ul>
