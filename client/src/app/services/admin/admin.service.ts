@@ -13,6 +13,7 @@ export class AdminService {
   Admins() {
     return this.http.get(this.url + 'admins')
   }
+
   //get all users
   Users() {
     return this.http.get(this.url + 'users')

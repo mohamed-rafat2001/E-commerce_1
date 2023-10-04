@@ -5,10 +5,12 @@ const bcryptjs = require('bcryptjs')
 const route = express.Router()
 const nodemailer = require('nodemailer')
 const uniqid = require('uniqid');
+const jwt = require('jsonwebtoken')
 // create new user... signUp
 route.post('/signUp', async (req, res) => {
     try {
         const email = req.body.email
+
         const findUser = await User.findOne({ email })
         if (!findUser) {
             const user = new User(req.body)

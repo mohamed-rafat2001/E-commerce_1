@@ -106,6 +106,7 @@ export class AllproductsComponent implements OnInit {
     this.allProduct()
     this.getUser()
     this.userCart()
+
   }
 
 }
